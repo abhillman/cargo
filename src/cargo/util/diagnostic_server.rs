@@ -328,3 +328,13 @@ impl Drop for StartedServer {
         drop(self.thread.take().unwrap().join());
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_rustfix_diagnostic_server() {
+        RustfixDiagnosticServer::new().unwrap();
+    }
+}
